@@ -94,12 +94,17 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-#top-navbar{
+#navbar-container{
     margin-right:0;
     margin-left:0;
     width: 100%
 }
 
+#textcontent-container{
+    margin-right:0;
+    margin-left:0;
+    width: 100%
+}
 
 
 
