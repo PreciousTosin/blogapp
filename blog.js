@@ -3,6 +3,14 @@ var path = require('path');
 
 var app = express();
 
+// set up handlebars view engine
+var handlebars = require('express-handlebars').create({
+    defaultLayout:'main'});
+
+// Register `handlebars.engine` with the Express app.
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
+
 //setting localhost and port
 app.set('port', process.env.PORT || 8000);
 
