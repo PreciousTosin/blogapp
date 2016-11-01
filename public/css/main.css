@@ -67,9 +67,9 @@ video {
  */
 
 fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /*
@@ -77,7 +77,7 @@ fieldset {
  */
 
 textarea {
-    resize: vertical;
+  resize: vertical;
 }
 
 /* ==========================================================================
@@ -85,25 +85,30 @@ textarea {
    ========================================================================== */
 
 .browserupgrade {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
 }
 
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 #navbar-container{
-    margin-right:0;
-    margin-left:0;
-    width: 100%
+  margin-right:0;
+  margin-left:0;
+  width: 100%
 }
 
 #textcontent-container{
-    margin-right:0;
-    margin-left:0;
-    width: 100%
+  margin-right:0;
+  margin-left:0;
+  width: 100%
+}
+
+#picture-container{
+  padding: 20%
+  background: :blue;
 }
 
 
