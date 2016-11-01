@@ -1,12 +1,20 @@
 var express = require("express");
+var path = require('path');
 
 var app = express();
 
 //setting localhost and port
 app.set('port', process.env.PORT || 8000);
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', function(req, res){
 	res.json("WELCOME TO BLOG EXPRESS APPLICATION")
+});
+
+//adding route for homepage
+app.get('/home', function(req, res){
+	res.sendFile(path.join(__dirname + '/views/home.html'));
 });
 
 // custom 404 page
