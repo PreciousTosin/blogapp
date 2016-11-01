@@ -21,6 +21,11 @@ app.get('/', function(req, res){
 	res.json("WELCOME TO BLOG EXPRESS APPLICATION")
 });
 
+//route to test handlebars view engine
+app.get('/handhome', function(req, res){
+	res.render('home');
+});
+
 //adding route for homepage
 app.get('/home', function(req, res){
 	res.sendFile(path.join(__dirname + '/views/home.html'));
