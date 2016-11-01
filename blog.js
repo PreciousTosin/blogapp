@@ -17,18 +17,21 @@ app.set('port', process.env.PORT || 8000);
 //middleware to access static
 app.use(express.static(__dirname + '/public'));
 
-app.get('/simple', function(req, res){
-	res.json("WELCOME TO BLOG EXPRESS APPLICATION")
-});
-
 //route to test handlebars view engine
-app.get('/handhome', function(req, res){
+app.get('/home', function(req, res){
 	res.render('home');
 });
 
-//adding route for homepage
-app.get('/home', function(req, res){
-	res.sendFile(path.join(__dirname + '/views/home.html'));
+app.get('/about', function(req, res){
+	res.render('about');
+});
+
+app.get('/contact', function(req, res){
+	res.render('contact');
+});
+
+app.get('/category/math', function(req, res){
+	res.render('categories/mathematics');
 });
 
 // custom 404 page
