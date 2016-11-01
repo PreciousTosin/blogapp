@@ -6,6 +6,7 @@ var app = express();
 //setting localhost and port
 app.set('port', process.env.PORT || 8000);
 
+//middleware to access static
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res){
