@@ -5,13 +5,14 @@
 	<script id="postTemplate" type="text/x-handlebars-template">
 		<div id="postsContainer" class="container">
 			<h3>Post Title - \{{title}}</h3>
-			<hr>
+			<hr class="templateHr">
 			<div id="postBody">
 				<p id="postDisplayTemplate">\{{body}}</p>
 				<input type="text" id="postTemplateInput" placeholder="Post Title"><br>
 				<textarea name="" id="postTemplateTextarea" cols="30" rows="10" placeholder="Write your post"></textarea><br>
 				<button id="postTemplateBtn">Display Post</button>
 			</div>
+			<hr class="templateHr">
 		<div>
 	</script>
 
@@ -21,13 +22,6 @@
 		}
 	</style>
 {{/section}}
-
-{{! div element used to display the generated template + context(data) added to it}}
-<div class="container">
-	<div id="information">Click button to display Info......</div>
-	<button id="ajaxinfoBtn">Info from Ajax</button>
-	
-</div>
 
 {{! div element used to display the generated template + context(data) added to it}}
 <div id="postsContainer" class="container">
@@ -78,6 +72,7 @@
 				var post = $("#postTemplateTextarea").val(); //obtain contents of textarea
 				$('#postDisplayTemplate').text(post); //change text content of paragraph
 				$("#postTemplateTextarea").val(""); //clear text area
+				$("#postTemplateInput").val(""); //clears input
 			})	
 		});
 	
