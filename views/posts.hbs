@@ -1,0 +1,17 @@
+{{#section 'head'}}
+	<script src="/js/vendor/handlebars-v4.0.5.js"></script>
+	
+	{{! Template for posts}}
+	<script id="postTemplate" type="text/x-handlebars-template">
+		<div id="postsContainer" class="container">
+			<h3>Post Title - \{{title}}</h3>
+			<hr>
+			<div id="postBody">
+				<p id="postDisplayTemplate">\{{body}}</p>
+				<input type="text" id="postTemplateInput" placeholder="Post Title"><br>
+				<textarea name="" id="postTemplateTextarea" cols="30" rows="10" placeholder="Write your post"></textarea><br>
+				<button id="postTemplateBtn">Display Post</button>
+			</div>
+		<div>
+	</script>
+{{/section}}
