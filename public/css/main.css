@@ -111,17 +111,15 @@ textarea {
   background: :blue;
 }
 
+#postDisplayTemplate{
+  border: 2px solid blue;
+  width:30%;
+}
 
-
-
-
-
-
-
-
-
-
-
+.templateHr{
+  width:30%;
+  border:2px solid grey;
+}
 
 
 /* ==========================================================================

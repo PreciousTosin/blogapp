@@ -44,6 +44,21 @@ app.get('/category/math', function(req, res){
 	res.render('categories/mathematics');
 });
 
+//route to load post view
+app.get('/posts', function(req, res){
+	res.render("posts");
+});
+
+//route to send ajax data
+app.get('/post', function(req, res){
+	res.json(
+		{
+			title:"Bacon Ipsum",
+			author:37,
+			body:"Bacon ipsum dolor amet tongue sirloin turducken, turkey ground round venison andouille kielbasa",
+		});
+});
+
 // custom 404 page
 app.use(function(req, res){
 	res.status(404);

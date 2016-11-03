@@ -1,0 +1,80 @@
+{{#section 'head'}}
+	<script src="/js/vendor/handlebars-v4.0.5.js"></script>
+	
+	{{! Template for posts}}
+	<script id="postTemplate" type="text/x-handlebars-template">
+		<div id="postsContainer" class="container">
+			<h3>Post Title - \{{title}}</h3>
+			<hr class="templateHr">
+			<div id="postBody">
+				<p id="postDisplayTemplate">\{{body}}</p>
+				<input type="text" id="postTemplateInput" placeholder="Post Title"><br>
+				<textarea name="" id="postTemplateTextarea" cols="30" rows="10" placeholder="Write your post"></textarea><br>
+				<button id="postTemplateBtn">Display Post</button>
+			</div>
+			<hr class="templateHr">
+		<div>
+	</script>
+
+	<style>
+		.container{
+			color:purple;
+		}
+	</style>
+{{/section}}
+
+{{! div element used to display the generated template + context(data) added to it}}
+<div id="postsContainer" class="container">
+	<p id="postDisplay" placeholder="POST DISPLAYS HERE!">POST DISPLAYS HERE</p>
+	<button id="templateBtn">Display Template</button>
+	<!-- <button id="postBtn">Display Post</button> -->
+</div>
+
+{{#section 'jquery'}}
+	<script>
+		$(document).ready(function(){
+			console.log("Document Ready")
+
+			/*handlebar compiles the template within the script with id="informationTemplate"*/
+			var postTemplate = Handlebars.compile(
+				$('#postTemplate').html());
+
+			/*select the div element which will be used to display the post template using it's id and assign to a variable*/
+			var $postInfo = $('#postDisplay');
+
+			/*add click event to the template button*/
+			/*execute anonymous function which then makes ajax call*/
+			/*data recieved from server is passed to compiled template(informationTemplate)*/
+			$('#templateBtn').on('click', function(evt){
+				console.log("template button clicked")
+				evt.preventDefault(); //prevents page from reloading
+				//var post = $("#postTextarea").val(); //obtain contents of textarea
+				//$('#postDisplay').text(post); //change text content of paragraph
+				//$("#postTextarea").val(""); //clear text area
+
+				$.ajax('/post', {
+					success: function(data){
+						console.log(data);
+						$postInfo.html(postTemplate(data))
+					},
+					failure:function(){
+						console.log("resuest failed");
+					}
+				});
+
+				$( "#postTemplateBtn" ).click();
+			});
+
+			/*adding click event to the postTemplate button*/
+			$('#postDisplay').on('click', '#postTemplateBtn', function(e) {
+    			console.log("post button clicked");
+    			$('h3').text($('#postTemplateInput').val());
+				var post = $("#postTemplateTextarea").val(); //obtain contents of textarea
+				$('#postDisplayTemplate').text(post); //change text content of paragraph
+				$("#postTemplateTextarea").val(""); //clear text area
+				$("#postTemplateInput").val(""); //clears input
+			})	
+		});
+	
+	</script>
+{{/section}}
